@@ -2,9 +2,12 @@ package com.luisscudeler.userdep.service;
 
 import com.luisscudeler.userdep.entities.User;
 import com.luisscudeler.userdep.repository.UserRepository;
+import com.luisscudeler.userdep.service.exception.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.EntityNotFoundException;
 import java.util.List;
 import java.util.Optional;
 
@@ -33,8 +36,9 @@ public class UserService {
     public void delete(Long id){
         try {
             userRepository.deleteById(id);
-        } catch (Exception e) {
-            throw new RuntimeException(e);
+        } catch (EmptyResultDataAccessException e) {
+            //e.printStackTrace();
+            throw new ResourceNotFoundException(id);
         }
     }
 
@@ -43,9 +47,8 @@ public class UserService {
             User newUser = userRepository.getReferenceById(id);
             updateData(newUser, user);
             return userRepository.save(newUser);
-        } catch (Exception e) {
-            e.printStackTrace();
-            throw new RuntimeException(e);
+        } catch (EntityNotFoundException e) {
+            throw new ResourceNotFoundException(id);
         }
     }
 
