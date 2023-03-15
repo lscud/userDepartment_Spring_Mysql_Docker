@@ -1,0 +1,21 @@
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: root
+    url: jdbc:mysql://localhost:3306/test_depart
+
+  jpa:
+    properties.hibernate.show_sql: true
+    properties.hibernate.format_sql: true
+    properties.hibernate.dialect: org.hibernate.dialect.MySQL8Dialect
+    open-in-view: true
+    hibernate:
+      ddl-auto: create #update
+
+  profiles:
+    active: test
+
+server:
+  port: 8080
