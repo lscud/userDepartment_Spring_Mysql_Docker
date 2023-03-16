@@ -24,7 +24,7 @@ public class Initialization implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-        Department d1 = new Department(null, "Gestão");
+        /*Department d1 = new Department(null, "Gestão");
         Department d2 = new Department(null, "Informatica");
 
         departmentRepository.saveAll(Arrays.asList(d1,d2));
@@ -34,7 +34,7 @@ public class Initialization implements CommandLineRunner {
         User u3 = new User(null, "Carlos", "caca@gmail.com", d2);
         User u4 = new User(null, "Alex", "alm@gmail.com", d2);
 
-        userRepository.saveAll((Arrays.asList(u1,u2,u3,u4)));
+        userRepository.saveAll((Arrays.asList(u1,u2,u3,u4)));*/
 
 
     }
