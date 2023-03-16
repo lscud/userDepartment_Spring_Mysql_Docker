@@ -1,10 +1,15 @@
 
+#spring:
+#  datasource:
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    username: root
+#    password: root
+#    url: jdbc:mysql://localhost:3306/test_depart
 spring:
   datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    username: root
-    password: root
-    url: jdbc:mysql://localhost:3306/test_depart
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:${MYSQL_PORT:3306}/test
+    username: ${MYSQL_USER:laravel}
+    password: ${MYSQL_PASSWORD:laravel}
 
   jpa:
     properties.hibernate.show_sql: true
